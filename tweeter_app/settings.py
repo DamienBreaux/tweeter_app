@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 import django_heroku # <- this line goes near the top of the file
-import environ # new
+import environ
 
 env = environ.Env() # new
 

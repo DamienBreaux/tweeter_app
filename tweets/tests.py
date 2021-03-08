@@ -31,10 +31,9 @@ class TweetTests(TestCase):
         self.assertContains(response, 'Nice tweet!')
         self.assertTemplateUsed(response, 'home.html')
 
-    def test_tweet_create_view(self):
-        response = self.client.post(reverse('tweet_new'), {
-            'body': 'New tweet',
-            'user': self.user,
-        })
+      def test_tweet_create_view(self):
+        self.client.force_login(self.user) # new
+        response = self.client.post(reverse('tweet_new'),
+            {'body': 'New tweet'}, follow=True) # updated
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'New tweet')

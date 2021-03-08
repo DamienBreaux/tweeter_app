@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+     'bootstrap4', # new
+     'bootstrap_datepicker_plus', # new
     'users',
     'tweets',
 ]
@@ -59,7 +61,7 @@ ROOT_URLCONF = 'tweeter_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [(os.path.join(BASE_DIR, 'templates')), ], # new
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -71,6 +73,16 @@ TEMPLATES = [
         },
     },
 ]
+BOOTSTRAP4 = { 'include_jquery': True } # new
+LOGIN_REDIRECT_URL = 'home' # new
+LOGOUT_REDIRECT_URL = 'home' # new
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' # new
+EMAIL_HOST = 'smtp.gmail.com' # new
+EMAIL_HOST_USER =  env.str('GMAIL_USERNAME') # new
+EMAIL_HOST_PASSWORD = env.str('GMAIL_PASSWORD') # new
+EMAIL_PORT = 587 # new
+EMAIL_USE_TLS = True # new
 
 WSGI_APPLICATION = 'tweeter_app.wsgi.application'
 

@@ -14,11 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 # tweeter_app/urls.py
+# tweeter_app/urls.py
 from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('tweets.urls')),
-    path('users/', include('users.urls')), #new
+    path('users/', include('users.urls')),
+    path('api/v1/', include('api.urls')), # new
+    path('api-auth/', include('rest_framework.urls')), # new
 ]

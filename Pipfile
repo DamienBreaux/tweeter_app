@@ -10,6 +10,7 @@ django-bootstrap4 = "*"
 gunicorn = "*"
 django-heroku = "*"
 django-bootstrap-datepicker-plus = "*"
+djangorestframework = "*"
 
 [dev-packages]
 

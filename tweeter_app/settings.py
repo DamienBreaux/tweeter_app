@@ -39,17 +39,39 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-     'rest_framework',
-     'bootstrap4', # new
-     'bootstrap_datepicker_plus', # new
+    'django.contrib.sites', # new
+
+    'rest_framework',
+    'rest_framework.authtoken',
+    'allauth', # new
+    'allauth.account', # new
+    'allauth.socialaccount', # new
+    'rest_auth',
+    'rest_auth.registration', # new
+    'bootstrap4',
+    'bootstrap_datepicker_plus',
     'users',
     'tweets',
     'api', # new
+
 ]
+
+SITE_ID = 1 # new
 # new
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
+    ],
+      'DEFAULT_AUTHENTICATION_CLASSES': [ # new
+        'rest_framework.authentication.TokenAuthentication', # new
+        'rest_framework.authentication.SessionAuthentication', # new
+],
+
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly', # new
     ]
 }
 
